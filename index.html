@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invitación Especial - Depashower de Lucía</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy&family=Oranienbaum&family=Quattrocento+Sans&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <style>
+    :root {
+      --lavanda: #E5DAFA;
+      --rosa: #F8D8E9;
+      --rosa-claro: #F4E2EC;
+      --celeste: #DCEEF4;
+      --blanco: #FFF9FD;
+      --texto: #333;
+    }
+
+    body {
+      font-family: 'Quattrocento Sans', sans-serif;
+      background-color: var(--blanco);
+      color: var(--texto);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      position: relative;
+    }
+
+    /* ==== MARIPOSAS FONDO ==== */
+    .butterfly-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .butterfly {
+      position: absolute;
+      font-size: 1.8rem;
+      opacity: 0.7;
+      animation: fly 15s linear infinite;
+    }
+
+    .butterfly:nth-child(1) { left: 5%; animation-delay: 0s; color: #E5DAFA; font-size: 2rem; }
+    .butterfly:nth-child(2) { left: 25%; animation-delay: 3s; color: #F8D8E9; }
+    .butterfly:nth-child(3) { left: 45%; animation-delay: 6s; color: #DCEEF4; font-size: 2.2rem; }
+    .butterfly:nth-child(4) { left: 65%; animation-delay: 2s; color: #F4E2EC; }
+    .butterfly:nth-child(5) { left: 85%; animation-delay: 5s; color: #E5DAFA; font-size: 2rem; }
+
+    @keyframes fly {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0.3; }
+      20% { transform: translateY(80vh) translateX(15px) rotate(10deg); opacity: 0.7; }
+      40% { transform: translateY(60vh) translateX(-10px) rotate(-8deg); opacity: 0.9; }
+      60% { transform: translateY(40vh) translateX(10px) rotate(5deg); }
+      80% { transform: translateY(20vh) translateX(-10px) rotate(-5deg); opacity: 0.8; }
+      100% { transform: translateY(-10vh) rotate(0deg); opacity: 0.3; }
+    }
+
+    /* ==== ESTILOS BASE ==== */
+    .font-display { font-family: 'Sorts Mill Goudy', serif; }
+    .font-subtitle { font-family: 'Oranienbaum', serif; }
+
+    .section {
+      min-height: 100vh;
+      padding: 4rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+    .card {
+      background: white;
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+      transition: transform 0.3s ease;
+    }
+    .card:hover { transform: scale(1.02); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      border-radius: 2rem;
+      padding: .9rem 1.8rem;
+      font-weight: bold;
+      transition: .3s;
+    }
+    .btn-primary { background: var(--lavanda); color: #4B2D5C; }
+    .btn-primary:hover { background: var(--rosa); transform: translateY(-3px); box-shadow: 0 4px 12px rgba(164,112,195,0.3); }
+    .btn-secondary { background: var(--celeste); color: #355E6D; }
+    .btn-secondary:hover { background: var(--rosa-claro); transform: translateY(-3px); box-shadow: 0 4px 12px rgba(220,238,244,0.3); }
+
+    .floating { animation: floating 3.5s ease-in-out infinite; }
+    @keyframes floating {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .reveal { opacity: 0; transform: translateY(40px); transition: all 1s ease; }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+
+    .icon-hover:hover { transform: scale(1.2) rotate(10deg); transition: 0.4s; }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🦋 MARIPOSAS EN EL FONDO -->
+  <div class="butterfly-container">
+    <span class="butterfly">🦋</span>
+    <span class="butterfly">🦋</span>
+    <span class="butterfly">🦋</span>
+    <span class="butterfly">🦋</span>
+    <span class="butterfly">🦋</span>
+  </div>
+
+  <!-- SECCIÓN 1 -->
+  <section class="section" style="background: linear-gradient(120deg, var(--lavanda), var(--celeste));" id="baby-shower">
+    <div class="max-w-3xl reveal animate__animated animate__fadeInDown">
+      <i class="fas fa-baby floating text-6xl text-[#6E4CA5] mb-4"></i>
+      <h2 class="text-4xl sm:text-5xl font-display mb-4 text-[#4B2D5C]"> TE INVITO A MI BABY</h2>
+      <h2 class="text-4xl sm:text-5xl font-display mb-4 text-[#4B2D5C]"> 👶🏻SHOWER🍼</h2>
+      <p class="text-xl font-subtitle text-[#6E4CA5] mb-6">¡Está en camino nuestra pequeña Camila💗!</p>
+      <p class="mb-6 text-lg">Acompáñame a celebrar la llegada de esta dulce ilusión, rodeadas de risas, cariño y amistad.</p>
+      <div class="space-y-2 text-lg">
+        <p><i class="fas fa-calendar-alt text-[#4B2D5C]"></i> <strong>Fecha:</strong> Sábado 25 de Octubre</p>
+        <p><i class="fas fa-clock text-[#4B2D5C]"></i> <strong>Hora:</strong> 7:00 p.m.</p>
+        <p><i class="fas fa-map-marker-alt text-[#4B2D5C]"></i> <strong>Lugar:</strong> Azotea, Jirón José Gálvez 1144</p>
+      </div>
+      <button class="btn btn-primary mt-8 animate__animated animate__pulse animate__infinite" onclick="scrollToSection('carta')">
+        Ver carta personal <i class="fas fa-heart"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 2 -->
+  <section class="section bg-[var(--blanco)]" id="carta">
+    <div class="card text-center reveal animate__animated animate__fadeInUp">
+      <p class="text-lg font-subtitle text-[#A270C3] mb-4">UN MENSAJE PARA TI</p>
+      <blockquote class="text-xl font-display italic mb-8 text-[#555]">
+        "Sé que esperabas esta hermosa noticia con ansias... Y yo, muy en el fondo, también.
+        Si recibiste esta invitación es porque eres una persona importante en mi vida.
+        Aunque la vida nos lleve por distintos caminos y nos veamos poco, te tengo siempre presente."
+      </blockquote>
+      <p class="text-2xl font-display">Con todo mi amor,</p>
+      <p class="text-3xl text-[#A270C3] font-subtitle mt-2 floating">Lucía 🌸</p>
+      <button class="btn btn-secondary mt-8" onclick="scrollToSection('revelacion')">
+        Continuar <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3 -->
+  <section class="section" id="revelacion" style="background: var(--rosa);">
+    <div class="text-center reveal animate__animated animate__fadeInUp">
+      <i class="fas fa-exclamation-triangle text-6xl text-[#A270C3] mb-6 icon-hover"></i>
+      <h2 class="text-5xl font-display mb-4 text-[#4B2D5C]">¡ESPERA...!</h2>
+      <p class="text-2xl text-[#4B2D5C] mb-6 font-subtitle">¡ME EQUIVOQUÉ DE INVITACIÓN!</p>
+      <p class="italic mb-6 text-[#4B2D5C]">Guarda esta tarjeta para dentro de dos años 💗</p>
+      <p class="text-3xl font-subtitle mb-6 text-[#4B2D5C]">Porque ahora sí... TA TA TAAAN...</p>
+      <button class="btn btn-primary" onclick="scrollToSection('depashower')">
+        Descúbrela <i class="absolute"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 4 -->
+  <section class="section" id="depashower" style="background: linear-gradient(120deg, var(--rosa-claro), var(--celeste));">
+    <div class="max-w-4xl mx-auto text-center reveal animate__animated animate__fadeInUp">
+      <i class="fas fa-home floating text-6xl text-[#6E4CA5] mb-4"></i>
+      <h2 class="text-5xl font-display mb-4 text-[#4B2D5C]">Depashower</h2>
+      <p class="text-lg mb-6 max-w-2xl mx-auto text-[#4B2D5C]">
+        Te invito a pasar un día de rompe y raja para darle la bienvenida a mi primer hogar.
+        Compartiremos agradables platillos y, por qué no... acompañarlo con sus ya tan conocidas bebidas espirituosas 🍷🍻.
+      </p>
+      <div class="space-y-2 text-lg text-[#4B2D5C]">
+        <p><i class="fas fa-calendar-alt"></i> <strong>Fecha:</strong> Sábado 25 de Octubre</p>
+        <p><i class="fas fa-clock"></i> <strong>Hora:</strong> 7:00 p.m.</p>
+        <p><i class="fas fa-map-marker-alt"></i> <strong>Lugar:</strong> Azotea, Jirón José Gálvez 1144</p>
+      </div>
+      <button class="btn btn-secondary mt-8 animate__animated animate__pulse animate__infinite" onclick="scrollToSection('regalos')">
+        Ver ideas de regalo <i class="fas fa-gift"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 5 -->
+  <section class="section bg-[var(--blanco)]" id="regalos">
+    <div class="card reveal animate__animated animate__fadeInUp">
+      <div class="text-center mb-8">
+        <p class="text-lg text-[#A270C3] font-subtitle">IDEAS DE REGALO</p>
+        <h3 class="text-3xl font-display text-[#6E4CA5]">(y mucho cariño)</h3>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-6 text-left text-[#4B2D5C]">
+        <div>
+          <h4 class="text-2xl border-b-2 border-[#A270C3] mb-4 pb-2">Para el hogar</h4>
+          <ul class="space-y-3">
+            <li>🪑 Juego de 4 sillas de barra</li>
+            <li>💺 Sillón ergonómico</li>
+            <li>👕 Planchador pequeño</li>
+            <li>🛋️ 2 Puff de sala</li>
+            <li>🥂 Juego de vasos altos</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-2xl border-b-2 border-[#A270C3] mb-4 pb-2">Más ideas</h4>
+          <ul class="space-y-3">
+            <li>💡 Espejos tipo LED</li>
+            <li>🪞 Mesita de centro</li>
+            <li>🛏️ Veladores de noche</li>
+            <li>🍊 Extractor de jugo</li>
+            <li>🧹 Trapeador automático</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="text-center mt-6 text-lg text-[#4B2D5C]">
+        🌿 ¡También me alegrarían unas plantitas! 💜  
+        <br><strong>Yape:</strong> <span class="text-[#A270C3] font-bold">934812804</span>
+      </p>
+      <div class="text-center mt-8">
+        <button class="btn btn-primary" onclick="scrollToSection('confirmacion')">
+          Confirmación final <i class="fas fa-heart"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 6 -->
+  <section class="section" id="confirmacion" style="background: var(--celeste);">
+    <div class="card text-center reveal animate__animated animate__fadeInUp">
+      <i class="fas fa-heart floating text-6xl text-[#A270C3] mb-6"></i>
+      <h2 class="text-5xl font-display mb-4 text-[#4B2D5C]">¡No faltes!</h2>
+      <p class="text-lg mb-8 text-[#4B2D5C]">Tu compañía es lo más importante.
+      Si no puedes traer regalo, ¡ven igual! Lo que realmente quiero es celebrar contigo este momento tan especial.</p>
+      <p class="text-2xl font-subtitle mb-8 text-[#6E4CA5]">¡Te espero con mucho cariño!</p>
+      <button class="btn btn-secondary" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <i class="fas fa-arrow-up"></i> Volver al inicio
+      </button>
+    </div>
+  </section>
+
+  <script>
+    function scrollToSection(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
+    const reveals=document.querySelectorAll('.reveal');
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('show'); observer.unobserve(e.target); }
+      });
+    },{threshold:.1});
+    reveals.forEach(el=>observer.observe(el));
+  </script>
+</body>
+</html>
