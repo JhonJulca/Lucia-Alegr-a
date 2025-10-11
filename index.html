@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Invitación Especial de Lucía</title>
+  <title>Invitación Especial - Lucía</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy&family=Oranienbaum&family=Quattrocento+Sans&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
@@ -23,65 +23,38 @@
       font-family: 'Quattrocento Sans', sans-serif;
       background-color: var(--blanco);
       color: var(--texto);
-      overflow-x: hidden;
+      overflow: hidden;
       scroll-behavior: smooth;
       position: relative;
     }
 
-    /* ==== MARIPOSAS FONDO ==== */
-    .butterfly-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: -1;
-      pointer-events: none;
-    }
 
-    .butterfly {
-      position: absolute;
-      font-size: 1.8rem;
-      opacity: 0.7;
-      animation: fly 15s linear infinite;
-    }
+    /* ==== ESTILOS GENERALES ==== */
 
-    .butterfly:nth-child(1) { left: 5%; animation-delay: 0s; color: #E5DAFA; font-size: 2rem; }
-    .butterfly:nth-child(2) { left: 25%; animation-delay: 3s; color: #F8D8E9; }
-    .butterfly:nth-child(3) { left: 45%; animation-delay: 6s; color: #DCEEF4; font-size: 2.2rem; }
-    .butterfly:nth-child(4) { left: 65%; animation-delay: 2s; color: #F4E2EC; }
-    .butterfly:nth-child(5) { left: 85%; animation-delay: 5s; color: #E5DAFA; font-size: 2rem; }
-
-    @keyframes fly {
-      0% { transform: translateY(100vh) rotate(0deg); opacity: 0.3; }
-      20% { transform: translateY(80vh) translateX(15px) rotate(10deg); opacity: 0.7; }
-      40% { transform: translateY(60vh) translateX(-10px) rotate(-8deg); opacity: 0.9; }
-      60% { transform: translateY(40vh) translateX(10px) rotate(5deg); }
-      80% { transform: translateY(20vh) translateX(-10px) rotate(-5deg); opacity: 0.8; }
-      100% { transform: translateY(-10vh) rotate(0deg); opacity: 0.3; }
-    }
-
-    /* ==== ESTILOS BASE ==== */
     .font-display { font-family: 'Sorts Mill Goudy', serif; }
     .font-subtitle { font-family: 'Oranienbaum', serif; }
 
     .section {
-      min-height: 100vh;
-      padding: 4rem 1rem;
-      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      display: none;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
       text-align: center;
+      padding: 3rem 1rem;
     }
+
+    .active-section { display: flex; }
+
     .card {
       background: white;
       border-radius: 1.5rem;
       box-shadow: 0 8px 20px rgba(0,0,0,0.05);
       padding: 2rem;
       max-width: 800px;
-      margin: auto;
       transition: transform 0.3s ease;
     }
     .card:hover { transform: scale(1.02); }
@@ -95,171 +68,426 @@
       padding: .9rem 1.8rem;
       font-weight: bold;
       transition: .3s;
+      cursor: pointer;
     }
     .btn-primary { background: var(--lavanda); color: #4B2D5C; }
-    .btn-primary:hover { background: var(--rosa); transform: translateY(-3px); box-shadow: 0 4px 12px rgba(164,112,195,0.3); }
+    .btn-primary:hover { background: var(--rosa); box-shadow: 0 4px 12px rgba(164,112,195,0.3); }
     .btn-secondary { background: var(--celeste); color: #355E6D; }
-    .btn-secondary:hover { background: var(--rosa-claro); transform: translateY(-3px); box-shadow: 0 4px 12px rgba(220,238,244,0.3); }
+    .btn-secondary:hover { background: var(--rosa-claro); box-shadow: 0 4px 12px rgba(220,238,244,0.3); }
 
     .floating { animation: floating 3.5s ease-in-out infinite; }
     @keyframes floating {
       0%,100% { transform: translateY(0); }
       50% { transform: translateY(-12px); }
     }
-
-    .reveal { opacity: 0; transform: translateY(40px); transition: all 1s ease; }
-    .reveal.show { opacity: 1; transform: translateY(0); }
-
-    .icon-hover:hover { transform: scale(1.2) rotate(10deg); transition: 0.4s; }
   </style>
+  <style>
+    /*ventana 1*/
+
+    /* Asegúrate de que tu animación 'floating' o 'flotar' esté definida en tu CSS */
+    /* Si ya tienes la clase 'floating' de tu código anterior, usa esa.
+       Si no, aquí te la dejo para que la agregues. */
+    .floating {
+        animation: flotar 3s ease-in-out infinite;
+    }
+
+    @keyframes flotar {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); } /* Sube 20px */
+        100% { transform: translateY(0px); }
+    }
+
+    /* Estilos para tu nueva imagen de bebé */
+    .bebe-imagen {
+        width: 200px; /* Ajusta el tamaño según necesites */
+        height: auto; /* Mantiene la proporción */
+        margin-bottom: 1rem; /* Espacio debajo de la imagen */
+        border-radius: 30%; /* Opcional: para que la imagen sea circular */
+         } 
+</style>
+<style>
+
+  /*ventana 2*/
+
+    /* Asegúrate de tener tus estilos de .card definidos para centrar el contenido */
+    .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 5px;
+        max-width: 500px;
+        margin: 2rem auto; /* Usar auto para centrar la tarjeta también */
+    }
+
+    /* Estilos para la imagen de Lucía */
+    .lucia-imagen {
+        width: 150px; /* Ajusta el tamaño como prefieras */
+        height: auto;
+        border-radius: 20%; /* Opcional: si quieres que la foto de Lucía sea circular */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Sombra sutil para la imagen */
+        object-fit: cover; /* Para que la imagen se vea bien si usas border-radius */
+    }
+
+    /* Tu animación 'floating' ya definida */
+    .floating {
+        animation: flotar 3s ease-in-out infinite;
+    }
+
+    @keyframes flotar {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); } /* Ligeramente menos flotante que el bebé, si quieres */
+        100% { transform: translateY(0px); }
+    }
+</style>
+
+
+
+<style>
+    /* Asegúrate de tener tus estilos de .card definidos para centrar el contenido */
+    /* (Ya los hemos revisado en respuestas anteriores, solo asegúrate que estén activos) */
+    .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 15px;
+        max-width: 500px;
+        margin: 2rem auto;
+        
+    }
+
+    /* Estilos para la nueva imagen de Lucía Sorprendida */
+    .lucia-sorpresa-imagen {
+        width: 180px; /* Un poco más grande para darle énfasis */
+        height: auto;
+        /* La imagen ya tiene fondo transparente, no necesita border-radius si quieres mantenerla rectangular/con su forma original */
+        margin-bottom: 1.5rem; /* Más espacio abajo para separar del texto */
+        animation: flotar-sorpresa 2.5s ease-in-out infinite; /* Una animación ligeramente diferente */
+    }
+
+    /* Nueva animación para la sorpresa, si quieres que se sienta diferente */
+    @keyframes flotar-sorpresa {
+        0% { transform: translateY(0px) rotate(0deg); }
+        25% { transform: translateY(-15px) rotate(2deg); }
+        50% { transform: translateY(0px) rotate(0deg); }
+        75% { transform: translateY(-15px) rotate(-2deg); }
+        100% { transform: translateY(0px) rotate(0deg); }
+    }
+
+    /* Si prefieres la animación flotante normal, puedes usar: */
+    /*
+    .floating-surprise {
+        animation: flotar 3s ease-in-out infinite;
+    }
+    @keyframes flotar {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-15px); }
+        100% { transform: translateY(0px); }
+    }
+    */
+</style>
+
+
+
+
+<style>
+    /* Asegúrate de tener tus estilos de .card definidos para centrar el contenido */
+    .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 15px;
+        max-width: 500px;
+        margin: 2rem auto;
+        
+    }
+
+    /* Estilos para la imagen de Lucía con la casa */
+    .lucia-depa-imagen {
+        width: 120px; /* Un tamaño destacado para la revelación final */
+        height: auto;
+        margin-bottom: 1.5rem;
+        /* Para imágenes con fondo transparente, un drop-shadow se ve mejor que un box-shadow */
+        filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+    }
+
+    /* Tu animación 'floating' ya definida */
+    .floating {
+        animation: flotar 6s ease-in-out infinite;
+    }
+
+    @keyframes flotar {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-15px); }
+        100% { transform: translateY(0px); }
+    }
+</style>
+  
+
+
+<style>
+    /* Asegúrate de tener tus estilos de .card definidos para centrar el contenido */
+    .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 15px;
+        max-width: 600px; /* Un poco más ancha para las dos columnas */
+        margin: 2rem auto;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Estilos para la imagen de Lucía con el regalo */
+    .lucia-regalo-imagen {
+        width: 150px; /* Un tamaño adecuado para esta sección */
+        height: auto;
+        margin-bottom: 2rem; /* Más espacio abajo para el título */
+        
+    }
+
+    /* Tu animación 'floating' ya definida */
+    .floating {
+        animation: flotar 3s ease-in-out infinite;
+    }
+
+    @keyframes flotar {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-12px); } /* Ligeramente más suave */
+        100% { transform: translateY(0px); }
+    }
+</style>
+
+  
+
+<style>
+    /* Asegúrate de tener tus estilos de .card definidos para centrar el contenido */
+    .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 30px;
+        max-width: 500px;
+        margin: 2rem auto;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Estilos para la imagen de Lucía con los brazos abiertos */
+    .lucia-abrazos-imagen {
+        width: 250px; /* Un tamaño más grande para el mensaje final */
+        height: auto;
+        margin-bottom: 2rem; /* Espacio debajo de la imagen */
+    }
+
+    /* Tu animación 'floating' ya definida */
+    .floating {
+        animation: flotar 6s ease-in-out infinite;
+    }
+
+    @keyframes flotar {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-12px); }
+        100% { transform: translateY(0px); }
+    }
+</style>
+
 </head>
 
 <body>
 
-  <!-- 🦋 MARIPOSAS EN EL FONDO -->
-  <div class="butterfly-container">
-    <span class="butterfly">🦋</span>
-    <span class="butterfly">🦋</span>
-    <span class="butterfly">🦋</span>
-    <span class="butterfly">🦋</span>
-    <span class="butterfly">🦋</span>
-  </div>
+  <!-- VENTANA 1 -->
 
-  <!-- SECCIÓN 1 -->
-  <section class="section" style="background: linear-gradient(120deg, var(--lavanda), var(--celeste));" id="baby-shower">
-    <div class="max-w-3xl reveal animate__animated animate__fadeInDown">
-      <i class="fas fa-baby floating text-6xl text-[#6E4CA5] mb-4"></i>
-      <h2 class="text-4xl sm:text-5xl font-display mb-4 text-[#4B2D5C]"> TE INVITO A MI BABY</h2>
-      <h2 class="text-4xl sm:text-5xl font-display mb-4 text-[#4B2D5C]"> 👶🏻SHOWER🍼</h2>
-      <p class="text-xl font-subtitle text-[#6E4CA5] mb-6">¡Está en camino nuestra pequeña Camila💗!</p>
-      <p class="mb-6 text-lg">Acompáñame a celebrar la llegada de esta dulce ilusión, rodeadas de risas, cariño y amistad.</p>
-      <div class="space-y-2 text-lg">
+
+<div class="card animate__animated animate__fadeInDown">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReLq5RTq2KgixqvfXE1CkQs-dVrnaKZhbJ_w&s" alt="Bebé Flotando" class="bebe-imagen floating">
+
+    <h2 class="text-4xl sm:text-5xl font-display text-[#4B2D5C] leading-tight">
+        TE INVITO A MI
+        <span class="block text-6xl sm:text-7xl">BABY SHOWER</span>
+    </h2>
+    <p class="text-xl font-subtitle text-[#6E4CA5] mt-4">¡Está en camino nuestra pequeña Camila!</p>
+    <p class="mt-4 text-lg">Acompáñame a celebrar la llegada de esta dulce ilusión, rodeadas de risas, cariño y amistad.</p>
+    <div class="space-y-2 text-lg mt-4">
         <p><i class="fas fa-calendar-alt text-[#4B2D5C]"></i> <strong>Fecha:</strong> Sábado 25 de Octubre</p>
         <p><i class="fas fa-clock text-[#4B2D5C]"></i> <strong>Hora:</strong> 7:00 p.m.</p>
-        <p><i class="fas fa-map-marker-alt text-[#4B2D5C]"></i> <strong>Lugar:</strong> Azotea, Jirón José Gálvez 1144</p>
-      </div>
-      <button class="btn btn-primary mt-8 animate__animated animate__pulse animate__infinite" onclick="scrollToSection('carta')">
-        Ver carta personal <i class="fas fa-heart"></i>
-      </button>
+        <p><i class="fas fa-map-marker-alt text-[#4B2D5C]"></i> <strong>Lugar:</strong> Jirón José Gálvez 1244, Urb. Santa Beatriz, Lima </p>
     </div>
-  </section>
+    <button class="btn btn-primary mt-8" onclick="showSection('sec2')">Ver carta personal </button>
+</div>
 
-  <!-- SECCIÓN 2 -->
-  <section class="section bg-[var(--blanco)]" id="carta">
-    <div class="card text-center reveal animate__animated animate__fadeInUp">
-      <p class="text-lg font-subtitle text-[#A270C3] mb-4">UN MENSAJE PARA TI</p>
-      <blockquote class="text-xl font-display italic mb-8 text-[#555]">
-        "Sé que esperabas esta hermosa noticia con ansias... Y yo, muy en el fondo, también.
-        Si recibiste esta invitación es porque eres una persona importante en mi vida.
-        Aunque la vida nos lleve por distintos caminos y nos veamos poco, te tengo siempre presente."
-      </blockquote>
-      <p class="text-2xl font-display">Con todo mi amor,</p>
-      <p class="text-3xl text-[#A270C3] font-subtitle mt-2 floating">Lucía 🌸</p>
-      <button class="btn btn-secondary mt-8" onclick="scrollToSection('revelacion')">
-        Continuar <i class="fas fa-arrow-right"></i>
-      </button>
+  <!-- VENTANA 2 -->
+
+
+<section id="sec2" class="section bg-[var(--blanco)]">
+    <div class="card animate__animated animate__fadeInUp">
+        
+        <img src="Foto ia lucia.png" alt="Lucía" class="lucia-imagen mb-6 floating"> 
+        <p class="text-lg font-subtitle text-[#A270C3] mb-4">UN MENSAJE PARA TI</p>
+        <blockquote class="text-xl font-display italic mb-8 text-[#555]">
+            “Sé que esperabas esta hermosa noticia con ansias... Y yo, muy en el fondo, también.
+            Si recibiste esta invitación es porque eres una persona importante en mi vida.
+            Aunque la vida nos lleve por distintos caminos y nos veamos poco, te tengo siempre presente.”
+        </blockquote>
+        <p class="text-2xl font-display">Con todo mi amor,</p>
+        <p class="text-3xl text-[#A270C3] font-subtitle mt-2 floating">Lucía </p>
+        <button class="btn btn-secondary mt-8" onclick="showSection('sec3')">Continuar </button>
     </div>
-  </section>
+</section>
+  
 
-  <!-- SECCIÓN 3 -->
-  <section class="section" id="revelacion" style="background: var(--rosa);">
-    <div class="text-center reveal animate__animated animate__fadeInUp">
-      <i class="fas fa-exclamation-triangle text-6xl text-[#A270C3] mb-6 icon-hover"></i>
-      <h2 class="text-5xl font-display mb-4 text-[#4B2D5C]">¡ESPERA...!</h2>
-      <p class="text-2xl text-[#4B2D5C] mb-6 font-subtitle">¡ME EQUIVOQUÉ DE INVITACIÓN!</p>
-      <p class="italic mb-6 text-[#4B2D5C]">Guarda esta tarjeta para dentro de dos años 💗</p>
-      <p class="text-3xl font-subtitle mb-6 text-[#4B2D5C]">Porque ahora sí... TA TA TAAAN...</p>
-      <button class="btn btn-primary" onclick="scrollToSection('depashower')">
-        Descúbrela <i class="absolute"></i>
-      </button>
+  <!-- VENTANA 3 -->
+
+
+  <section id="sec3" class="section" style="background: var(--rosa);">
+    <div class="card animate__animated animate__fadeInUp">
+        
+        <img src="foto de lucia espera.png" alt="Lucía Sorprendida" class="lucia-sorpresa-imagen mb-6 floating-surprise">
+        
+        <h2 class="text-5xl font-display mb-4 text-[#4B2D5C]">¡ESPERA...!</h2>
+        <p class="text-2xl text-[#4B2D5C] mb-6 font-subtitle">¡ME EQUIVOQUÉ DE INVITACIÓN!</p>
+        <p class="italic mb-6 text-[#4B2D5C]">Guarda esta tarjeta para dentro de dos años 💗</p>
+        <p class="text-3xl font-subtitle mb-6 text-[#4B2D5C]">Porque ahora sí... TA TA TAAAN...</p>
+        <button class="btn btn-primary" onclick="showSection('sec4')">➤Sígueme</button>
     </div>
-  </section>
+</section>
 
-  <!-- SECCIÓN 4 -->
-  <section class="section" id="depashower" style="background: linear-gradient(120deg, var(--rosa-claro), var(--celeste));">
-    <div class="max-w-4xl mx-auto text-center reveal animate__animated animate__fadeInUp">
-      <i class="fas fa-home floating text-6xl text-[#6E4CA5] mb-4"></i>
-      <h2 class="text-5xl font-display mb-4 text-[#4B2D5C]">Depashower</h2>
-      <p class="text-lg mb-6 max-w-2xl mx-auto text-[#4B2D5C]">
-        Te invito a pasar un día de rompe y raja para darle la bienvenida a mi primer hogar.
-        Compartiremos agradables platillos y, por qué no... acompañarlo con sus ya tan conocidas bebidas espirituosas 🍷🍻.
-      </p>
-      <div class="space-y-2 text-lg text-[#4B2D5C]">
-        <p><i class="fas fa-calendar-alt"></i> <strong>Fecha:</strong> Sábado 25 de Octubre</p>
-        <p><i class="fas fa-clock"></i> <strong>Hora:</strong> 7:00 p.m.</p>
-        <p><i class="fas fa-map-marker-alt"></i> <strong>Lugar:</strong> Azotea, Jirón José Gálvez 1144</p>
-      </div>
-      <button class="btn btn-secondary mt-8 animate__animated animate__pulse animate__infinite" onclick="scrollToSection('regalos')">
-        Ver ideas de regalo <i class="fas fa-gift"></i>
-      </button>
-    </div>
-  </section>
+  <!-- VENTANA 4 -->
 
-  <!-- SECCIÓN 5 -->
-  <section class="section bg-[var(--blanco)]" id="regalos">
-    <div class="card reveal animate__animated animate__fadeInUp">
-      <div class="text-center mb-8">
-        <p class="text-lg text-[#A270C3] font-subtitle">IDEAS DE REGALO</p>
-        <h3 class="text-3xl font-display text-[#6E4CA5]">(y mucho cariño)</h3>
-      </div>
-      <div class="grid sm:grid-cols-2 gap-6 text-left text-[#4B2D5C]">
-        <div>
-          <h4 class="text-2xl border-b-2 border-[#A270C3] mb-4 pb-2">Para el hogar</h4>
-          <ul class="space-y-3">
-            <li>🪑 Juego de 4 sillas de barra</li>
-            <li>💺 Sillón ergonómico</li>
-            <li>👕 Planchador pequeño</li>
-            <li>🛋️ 2 Puff de sala</li>
-            <li>🥂 Juego de vasos altos</li>
-          </ul>
+
+  <section id="sec4" class="section" style="background: linear-gradient(120deg, var(--rosa-claro), var(--celeste));">
+    <div class="card animate__animated animate__fadeInUp">
+        
+        <img src="Lucia-Home.png" alt="Lucía Depashower" class="lucia-depa-imagen floating">
+        
+        <h2 class="text-5xl font-display mb-4 text-[#4B2D5C]">Depashower</h2>
+        <p class="text-lg mb-6 text-[#4B2D5C]">
+            Te invito a pasar un día de rompe y raja para darle la bienvenida a mi primer hogar.
+            Compartiremos agradables platillos y, por qué no... acompañarlo con sus ya tan conocidas bebidas espirituosas.
+        </p>
+        <div class="space-y-2 text-lg text-[#4B2D5C]">
+            <p><i class="fas fa-calendar-alt"></i> <strong>Fecha:</strong> Sábado 25 de Octubre</p>
+            <p><i class="fas fa-clock"></i> <strong>Hora:</strong> 7:00 p.m.</p>
+            <p><i class="fas fa-map-marker-alt"></i> <strong>Lugar:</strong> Jirón José Gálvez 1244, Urb. Santa Beatriz, Lima</p>
         </div>
-        <div>
-          <h4 class="text-2xl border-b-2 border-[#A270C3] mb-4 pb-2">Más ideas</h4>
-          <ul class="space-y-3">
-            <li>💡 Espejos tipo LED</li>
-            <li>🪞 Mesita de centro</li>
-            <li>🛏️ Veladores de noche</li>
-            <li>🍊 Extractor de jugo</li>
-            <li>🧹 Trapeador automático</li>
-          </ul>
-        </div>
-      </div>
-
-      <p class="text-center mt-6 text-lg text-[#4B2D5C]">
-        🌿 ¡También me alegrarían unas plantitas! 💜  
-        <br><strong>Yape:</strong> <span class="text-[#A270C3] font-bold">934812804</span>
-      </p>
-      <div class="text-center mt-8">
-        <button class="btn btn-primary" onclick="scrollToSection('confirmacion')">
-          Confirmación final <i class="fas fa-heart"></i>
+        
+        <button class="btn btn-primary mt-6" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Jirón+José+Gálvez+1244,+Urb.+Santa+Beatriz,+Lima', '_blank')">
+            ➤ Ver ubicación
         </button>
-      </div>
+        
+        <button class="btn btn-secondary mt-4" onclick="showSection('sec5')">Ver ideas de regalo</button>
     </div>
-  </section>
+</section>
 
-  <!-- SECCIÓN 6 -->
-  <section class="section" id="confirmacion" style="background: var(--celeste);">
-    <div class="card text-center reveal animate__animated animate__fadeInUp">
-      <i class="fas fa-heart floating text-6xl text-[#A270C3] mb-6"></i>
-      <h2 class="text-5xl font-display mb-4 text-[#4B2D5C]">¡No faltes!</h2>
-      <p class="text-lg mb-8 text-[#4B2D5C]">Tu compañía es lo más importante.
-      Si no puedes traer regalo, ¡ven igual! Lo que realmente quiero es celebrar contigo este momento tan especial.</p>
-      <p class="text-2xl font-subtitle mb-8 text-[#6E4CA5]">¡Te espero con mucho cariño!</p>
-      <button class="btn btn-secondary" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-        <i class="fas fa-arrow-up"></i> Volver al inicio
-      </button>
+<!-- VENTANA 5 -->
+
+<section id="sec5" class="section bg-[var(--blanco)]">
+    <div class="card animate__animated animate__fadeInUp">
+        
+        <img src="lucia-regalo.png" alt="Lucía con regalo" class="lucia-regalo-imagen floating">
+
+        <div class="text-center mb-8">
+            <p class="text-lg text-[#A270C3] font-subtitle">IDEAS DE REGALO</p>
+            <h3 class="text-2xl font-display text-[#6E4CA5]">(y mucho cariño)</h3>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-6 text-left text-[#4B2D5C]">
+            <div>
+                <h4 class="text-2xl border-b-2 border-[#A270C3] mb-4 pb-2">Para el hogar</h4>
+                <ul class="space-y-3">
+                    <li>Juego de 4 sillas de barra
+                        <a href="https://tottus.falabella.com.pe/tottus-pe/product/121571536/set-x2-silla-de-bar-begonia-negra/121571537" target="_blank" class="underline text-[#A270C3] hover:text-[#6E4CA5]">Ver</a>
+                    </li>
+                    <li>Sillón ergonómico
+                        <a href="https://cadi.pe/prod/silla-ergonomica-de-oficina-con-cabecera-y-respaldo-regulables-blanca/?gad_source=1&gad_campaignid=21645342394&gbraid=0AAAAA-EoRtjqopIQ9k4v3Dh2Sol3cJamB&gclid=Cj0KCQjwl5jHBhDHARIsAB0Yqjw4BUaXogioGL8TU3EPaFXRd6_G3Q_xsMQrqCmMTllhp0rkPSdoaXIaAtcTEALw_wcB" target="_blank" class="underline text-[#A270C3] hover:text-[#6E4CA5]">Ver</a>
+                    </li>
+                    <li> Planchador pequeño
+                        <a href="https://www.oechsle.pe/planchador-mueble-organizador---color-blanco-1001322533/p" target="_blank" class="underline text-[#A270C3] hover:text-[#6E4CA5]">Ver</a>
+                    </li>
+                    <li> 2 Puff de sala
+                        <a href="https://sodimac.falabella.com.pe/sodimac-pe/product/115046952/Puff-Ottoman-con-Almacenamiento/115047897" target="_blank" class="underline text-[#A270C3] hover:text-[#6E4CA5]">Ver</a>
+                    </li>
+                    <li> Juego de vasos altos
+                        <a href="https://www.falabella.com.pe/falabella-pe/product/882000519/Set-x6-Vasos-Largos-Clear-300-ml/882000519" target="_blank" class="underline text-[#A270C3] hover:text-[#6E4CA5]">Ver</a>
+                    </li>
+                    <li> Deshumedecedor 
+                        <a href="https://www.promart.pe/deshumedecedor-taurus-td-380-67639/p" target="_blank" class="underline text-[#A270C3] hover:text-[#6E4CA5]">Ver</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-2xl border-b-2 border-[#A270C3] mb-4 pb-2">Más ideas</h4>
+                <ul class="space-y-3">
+                    <li>Espejos tipo LED
+                        <a href="https://sodimac.falabella.com.pe/sodimac-pe/product/138434496/Espejo-LED-80X-60-cm-Antonia/138434497" target="_blank" class="underline text-[#A270C3] hover:text-[#6E4CA5]">Ver</a>
+                    </li>
+                    <li>Mesita de centro
+                        <a href="https://www.falabella.com.pe/falabella-pe/product/883026939/Mesas-Auxiliares-Ray-Set-x2/883026939" target="_blank" class="underline text-[#A270C3] hover:text-[#6E4CA5]">Ver</a>
+                    </li>
+                    <li> Veladores de noche
+                        <a href="https://sodimac.falabella.com.pe/sodimac-pe/product/128538620/Mesa-de-Noche-Rusia-Cafe/128538622?exp=sodimac" target="_blank" class="underline text-[#A270C3] hover:text-[#6E4CA5]">Ver</a>
+                    </li>
+                    <li> Extractor de jugo
+                        <a href="https://sodimac.falabella.com.pe/sodimac-pe/product/119095189/EXTRACTOR-DE-JUGO-IMACO-CP4830-NEGRO/119095190?exp=sodimac" target="_blank" class="underline text-[#A270C3] hover:text-[#6E4CA5]">Ver</a>
+                    </li>
+                    <li> Trapeador automático
+                        <a href="https://www.falabella.com.pe/falabella-pe/product/121750877/Trapeador-con-Escurridor-Giratorio-Automatico-2-Mopas-Verde/121750878" target="_blank" class="underline text-[#A270C3] hover:text-[#6E4CA5]">Ver</a>
+                    </li>
+                    <li>  Tapers Herméticos de Vidrio
+                        <a href="https://www.sodimac.com.pe/sodimac-pe/articulo/142125908/Set-X5-Tapers-Hermeticos-de-Vidrio-con-Tapa/142125909" target="_blank" class="underline text-[#A270C3] hover:text-[#6E4CA5]">Ver</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <p class="text-center mt-6 text-lg text-[#4B2D5C]">
+            ¡También me alegrarían unas plantitas! 
+            <li>Confirmar el Regalo
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdl_-6YXabMLOuAJ3v_Jp7m2-mZJJEjUST7UZVUV_QcUH46bQ/viewform?usp=sharing&ouid=115000652196367282233" target="_blank" class="underline text-[#A270C3] hover:text-[#6E4CA5]">Ingresa Aqui</a>
+            </li>
+            <br><strong>Yape:</strong> <span class="text-[#A270C3] font-bold">934812804</span>
+        </p>
+        <div class="text-center mt-8">
+            <button class="btn btn-primary" onclick="showSection('sec6')">Confirmación final</button>
+        </div>
     </div>
-  </section>
+</section>
+
+  
+  <!-- VENTANA 6 -->
+
+
+<section id="sec6" class="section" style="background: var(--celeste);">
+    <div class="card animate__animated animate__fadeInUp">
+        
+        <img src="lucia-fin.png" alt="Lucía con brazos abiertos" class="lucia-abrazos-imagen floating">
+        
+        <h2 class="text-5xl font-display mb-4 text-[#4B2D5C]">¡No faltes!</h2>
+        <p class="text-lg mb-8 text-[#4B2D5C]">
+            Tu compañía es lo más importante.
+            Si no puedes traer regalo, ¡ven igual!
+            Lo que realmente quiero es celebrar contigo este momento tan especial.
+        </p>
+        <p class="text-2xl font-subtitle mb-8 text-[#6E4CA5]">¡Te espero con mucho cariño!</p>
+        <button class="btn btn-secondary" onclick="showSection('sec1')"><i class="fas fa-arrow-up"></i> Volver al inicio</button>
+    </div>
+</section>
 
   <script>
-    function scrollToSection(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
-    const reveals=document.querySelectorAll('.reveal');
-    const observer=new IntersectionObserver(entries=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){ e.target.classList.add('show'); observer.unobserve(e.target); }
-      });
-    },{threshold:.1});
-    reveals.forEach(el=>observer.observe(el));
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active-section'));
+      document.getElementById(id).classList.add('active-section');
+    }
   </script>
 </body>
 </html>
